@@ -1,0 +1,88 @@
+<table mat-table [dataSource]="cryptoData$" class="w-100" >
+
+  <ng-container matColumnDef="#">
+    <th mat-header-cell *matHeaderCellDef> # </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="d-flex ">
+        <a [routerLink]="'currencies/' + element.slug" style="text-decoration: none;color: #000;">
+          <div class="d-flex align-items-center">
+            <img [src]="'https://s2.coinmarketcap.com/static/img/coins/64x64/' + element.id + '.png'" alt="" style="height: 24px;width: 24px;">
+            <div class="ms-1 d-flex align-items-center">
+              <div class="fw-bold">
+                {{element.name}}
+              </div>
+              <div class="ms-2" style="color: rgb(128, 138, 157);">
+                {{ element.symbol }}
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.quote.USD.price | currency}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="24h">
+    <th mat-header-cell *matHeaderCellDef> 24h% </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="d-flex align-items-center justify-content-end">
+        <div *ngIf="element.quote.USD.percent_change_24h > 0">
+          <mat-icon class="up h-100 align-middle">arrow_drop_up</mat-icon>
+        </div>
+        <span *ngIf="element.quote.USD.percent_change_24h < 0">
+          <mat-icon class="down align-middle">arrow_drop_down</mat-icon>
+        </span>
+        {{element.quote.USD.percent_change_24h | number: '1.2-2'}} %
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="7d">
+    <th mat-header-cell *matHeaderCellDef> 7d% </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="d-flex align-items-center justify-content-end">
+        <div *ngIf="element.quote.USD.percent_change_7d > 0">
+          <mat-icon class="up h-100 align-middle">arrow_drop_up</mat-icon>
+        </div>
+        <span *ngIf="element.quote.USD.percent_change_7d < 0">
+          <mat-icon class="down align-middle">arrow_drop_down</mat-icon>
+        </span>
+        {{element.quote.USD.percent_change_7d | number: '1.2-2'}} %
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="market_cap">
+    <th mat-header-cell *matHeaderCellDef> Market Cap </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.quote.USD.market_cap | currency:'USD':'symbol':'1.0-0' }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="volume">
+    <th mat-header-cell *matHeaderCellDef> Volume(24h) </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.quote.USD.volume_24h | currency:'USD':'symbol':'1.0-0' }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="circulating_supply">
+    <th mat-header-cell *matHeaderCellDef> Circulating Supply </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.circulating_supply | currency:element.symbol:'code':'1.0-0':'nl' }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-row"></tr>
+</table>

@@ -1,0 +1,24 @@
+@import '/src/scss/_variables.scss';
+
+.down {
+  color: $down-color;
+}
+.up {
+  color: $up-color;
+}
+.mat-row {
+  height: 80px;
+}
+.hover-row {
+  &:hover {
+    background-color: rgb(248, 250, 253);
+  }
+}
+.mat-column-price,
+.mat-column-24h,
+.mat-column-7d,
+.mat-column-market_cap,
+.mat-column-volume,
+.mat-column-circulating_supply {
+  text-align: right;
+}

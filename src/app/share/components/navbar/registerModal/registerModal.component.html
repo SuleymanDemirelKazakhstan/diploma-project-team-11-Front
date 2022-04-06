@@ -1,0 +1,30 @@
+<div>
+  <h1 mat-dialog-title class="mb-1">Create an account</h1>
+  <div style="font-size: 14px;color: #58667e;">
+    Gain access to additional features such as Watchlist and Portfolio tracking.
+    <p>
+      Already have an account?
+      <a (click)="openLoginDialog()" style="color: #3861fb;cursor: pointer;">
+        Log In
+      </a>
+    </p>
+  </div>
+  <form [formGroup]="registrationForm">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Email Address</mat-label>
+      <input type="text" matInput placeholder="Enter your email address..." autocomplete="email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100 mb-5">
+      <mat-label>Password</mat-label>
+      <input type="text" matInput placeholder="Enter your password..." autocomplete="new-password" formControlName="password">
+      <mat-hint>
+        Password should contain both letter and number, with minimum length of 8 characters
+      </mat-hint>
+    </mat-form-field>
+    <fieldset>
+      <button mat-flat-button class="w-100 py-2" color="primary" [disabled]="registrationForm.invalid">
+        Create an account
+      </button>
+    </fieldset>
+  </form>
+</div>

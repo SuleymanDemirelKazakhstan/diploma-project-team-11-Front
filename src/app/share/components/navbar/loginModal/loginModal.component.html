@@ -1,0 +1,24 @@
+<div>
+  <h1 mat-dialog-title class="mb-1">Log In</h1>
+  <p style="font-size: 14px;color: #58667e;">
+    New to CoinMarketCap? 
+    <a (click)="openRegistrationDialog()" style="color: #3861fb;cursor: pointer;">
+      Create an account
+    </a>
+  </p>
+  <form [formGroup]="loginForm">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Email Address</mat-label>
+      <input type="text" matInput placeholder="Enter your email address..." autocomplete="email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Password</mat-label>
+      <input type="text" matInput placeholder="Enter your password..." autocomplete="current-password" formControlName="password">
+    </mat-form-field>
+    <fieldset>
+      <button mat-flat-button class="w-100 py-2" color="primary" [disabled]="loginForm.invalid">
+        Log In
+      </button>
+    </fieldset>
+  </form>
+</div>
