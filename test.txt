@@ -1,0 +1,3 @@
+"customWebpackConfig": {
+              "path": "./custom-webpack.config.js"
+            },

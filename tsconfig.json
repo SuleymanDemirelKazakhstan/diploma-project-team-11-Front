@@ -19,7 +19,8 @@
     "lib": ["es2018", "dom"],
     "paths": {
       "@share/*": ["src/app/share/*"]
-    }
+    },
+    "typeRoots": ["/node_modules/@types"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

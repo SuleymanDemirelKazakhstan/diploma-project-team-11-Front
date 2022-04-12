@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'currencies',
     loadChildren: () => import('./currencies/currencies.module').then((m) => m.CurrenciesModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule)
   }
 ];
 
