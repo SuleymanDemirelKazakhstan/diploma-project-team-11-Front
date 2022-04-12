@@ -18,11 +18,8 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./extra-webpack.config.js"
-            },
             "outputPath": "dist/diplom",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -67,10 +64,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/custom-webpack:dev-server",
-          "options": {
-            "browserTarget": "angular-css-modules:build"
-          },
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "diplom:build:production"
