@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import detectEthereumProvider from '@metamask/detect-provider';
 
 @Component({
   selector: 'app-auth',
@@ -8,5 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class AuthComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.test();
+  }
+
+  async test() {
+    const provider: any = await detectEthereumProvider();
+    console.log(provider);
+
+    if (provider) {
+      provider === window.ethereum;
+      console.log(provider.isMetaMask);
+
+      const chainId = await provider.request({
+        method: 'eth_chainId'
+      });
+
+      console.log(chainId);
+    } else {
+      console.log('Please install MetaMask!');
+    }
+  }
 }
