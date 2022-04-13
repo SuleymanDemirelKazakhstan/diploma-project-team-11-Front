@@ -18,10 +18,17 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
-      "@share/*": ["src/app/share/*"]
+      "@share/*": ["src/app/share/*"],
+      "crypto": ["node_modules/crypto-browserify"],
+      "stream": ["node_modules/stream-browserify"],
+      "assert": ["node_modules/assert"],
+      "http": ["node_modules/stream-http"],
+      "https": ["node_modules/https-browserify"],
+      "os": ["node_modules/os-browserify"]
     },
     "typeRoots": ["/node_modules/@types"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -22,6 +22,7 @@ export class AuthComponent implements OnInit {
 
   async test() {
     let web3 = new Web3();
+    console.log(web3);
     // console.log(web3);
     // web3;
     // const provider: any = await detectEthereumProvider();
