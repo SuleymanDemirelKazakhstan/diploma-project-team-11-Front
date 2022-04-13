@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import detectEthereumProvider from '@metamask/detect-provider';
+import { ethers } from 'ethers';
+import Web3 from 'web3';
+import { BlockHeader, Block } from 'web3-eth';
+
+interface ConnectInfo {
+  chainId: string;
+}
 
 @Component({
   selector: 'app-auth',
@@ -14,20 +21,17 @@ export class AuthComponent implements OnInit {
   }
 
   async test() {
-    const provider: any = await detectEthereumProvider();
-    console.log(provider);
-
-    if (provider) {
-      provider === window.ethereum;
-      console.log(provider.isMetaMask);
-
-      const chainId = await provider.request({
-        method: 'eth_chainId'
-      });
-
-      console.log(chainId);
-    } else {
-      console.log('Please install MetaMask!');
-    }
+    let web3 = new Web3();
+    // console.log(web3);
+    // web3;
+    // const provider: any = await detectEthereumProvider();
+    // if (provider) {
+    // provider === window.ethereum;
+    // const provider2 = new ethers.providers.Web3Provider(window.ethereum!);
+    // console.log(provider2);
+    // ethers.providers
+    // } else {
+    //   console.log('Please install MetaMask!');
+    // }
   }
 }
