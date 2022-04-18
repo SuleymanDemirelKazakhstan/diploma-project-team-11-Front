@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AutofillMonitor } from '@angular/cdk/text-field';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import detectEthereumProvider from '@metamask/detect-provider';
 import { ethers } from 'ethers';
 import Web3 from 'web3';
@@ -13,26 +14,33 @@ interface ConnectInfo {
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent implements OnInit {
-  constructor() {}
+export class AuthComponent implements OnInit, AfterViewInit {
+  constructor(private _autofill: AutofillMonitor) {}
 
   ngOnInit() {
     this.test();
   }
 
+  ngAfterViewInit(): void {}
+
   async test() {
-    let web3 = new Web3();
-    console.log(web3);
-    // console.log(web3);
-    // web3;
-    // const provider: any = await detectEthereumProvider();
-    // if (provider) {
-    // provider === window.ethereum;
-    // const provider2 = new ethers.providers.Web3Provider(window.ethereum!);
-    // console.log(provider2);
-    // ethers.providers
-    // } else {
-    //   console.log('Please install MetaMask!');
-    // }
+    const provider: any = await detectEthereumProvider();
+    if (provider) {
+      let web3 = new Web3(provider);
+      provider === window.ethereum;
+      const accounts = await provider.request({ method: 'eth_requestAccounts' });
+      console.log('accounts: ', accounts);
+
+      // Get provider from Metamask
+      const provider2 = new ethers.providers.Web3Provider(window.ethereum!);
+      console.log('provider2: ', provider2);
+      // Set signer
+      const signer = provider2.getSigner();
+      console.log('signer: ', signer);
+
+      // const marketPlace = new ethers.Contract()
+    } else {
+      console.log('Please install MetaMask!');
+    }
   }
 }
