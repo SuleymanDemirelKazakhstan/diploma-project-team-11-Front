@@ -1,0 +1,29 @@
+<div class="container">
+  <form class="d-flex flex-column" style="font-size: 14px;">
+    <fieldset>
+      <input type="file" >
+    </fieldset>    
+    <mat-form-field appearance="outline">
+      <mat-label>Item name</mat-label>
+      <input type="text" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>External link</mat-label>
+      <input type="text" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input type="text" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-select placeholder="Contact" formControlName="contact">
+        <mat-select-trigger>
+          <mat-icon>home</mat-icon>ETH
+        </mat-select-trigger>
+        <mat-option value="ETH">
+          <mat-icon>home</mat-icon>ETH
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>

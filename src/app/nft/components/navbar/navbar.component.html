@@ -1,0 +1,29 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: unset !important;">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">CryptoStan</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">      
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-4">
+          <li class="nav-item me-2">
+            <a class="nav-link" mat-button routerLinkActive="navbar-btn-selected" [routerLinkActiveOptions]="{exact: true}" routerLink="/nft">Home</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" mat-button routerLinkActive="navbar-btn-selected" routerLink="/nft/explore">Explore</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" mat-button routerLinkActive="navbar-btn-selected" routerLink="/nft/create">Create</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" mat-button routerLinkActive="navbar-btn-selected" routerLink="/nft/creaters">Creaters</a>
+          </li>
+        </ul>
+        <div>
+          <button mat-flat-button color="primary" (click)="connectWallet()">Connect Wallet</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

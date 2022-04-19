@@ -8,9 +8,10 @@ import { MatTableModule } from '@angular/material/table';
 
 import { TableComponent } from './container/table/table.component';
 import { MainComponent } from './main.component';
+import { ShareModule } from '@share/share.module';
 
 @NgModule({
   declarations: [MainComponent, TableComponent],
-  imports: [CommonModule, MainRoutingModule, MatTableModule, CdkTableModule, MatIconModule]
+  imports: [CommonModule, MainRoutingModule, MatTableModule, CdkTableModule, MatIconModule, ShareModule]
 })
 export class MainModule {}

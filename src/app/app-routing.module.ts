@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule)
+  },
+  {
+    path: 'nft',
+    loadChildren: () => import('./nft/nft.module').then((m) => m.NftModule)
   }
 ];
 
