@@ -12,6 +12,7 @@ import { ExploreComponent } from './explore/explore.component';
 import { MainComponent } from './main/main.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [NftComponent, NavbarComponent, CreateComponent, ExploreComponent],
@@ -22,6 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatSelectModule,
     MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',

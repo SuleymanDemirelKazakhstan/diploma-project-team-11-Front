@@ -1,29 +1,44 @@
-<div class="container">
-  <form class="d-flex flex-column" style="font-size: 14px;">
-    <fieldset>
-      <input type="file" >
+<div class="container mt-3">
+  <form [formGroup]="createForm" (ngSubmit)="submitCreateForm()"
+  class="d-flex flex-column"
+    style="font-size: 14px;"
+  >
+    <fieldset class="my-1 pb-3">
+      <input type="file" accept=".jpg,.png,.gif,.svg,.mp4,.webm,.mp3,.wav,.ogg,.glb,.gltf" (change)="fileHandler($event)">
     </fieldset>    
     <mat-form-field appearance="outline">
       <mat-label>Item name</mat-label>
-      <input type="text" matInput>
+      <input type="text" matInput formControlName="name" autocomplete="off">
+      <mat-error *ngIf="createForm.controls['name'].errors?.required">
+        Please, fill the field
+      </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>External link</mat-label>
-      <input type="text" matInput>
+      <input type="text" matInput formControlName="externalLink" autocomplete="off">
+      <mat-error *ngIf="createForm.controls['externalLink'].errors?.pattern">
+        Incorrect url format
+      </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Description</mat-label>
-      <input type="text" matInput>
+      <input type="text" matInput formControlName="description" autocomplete="off">
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-select placeholder="Contact" formControlName="contact">
-        <mat-select-trigger>
-          <mat-icon>home</mat-icon>ETH
+      <mat-label>Block chain</mat-label>
+      <mat-select placeholder="block chain name" [(value)]="blockChainName">
+        <mat-select-trigger > 
+          <img src="/assets/img/nft/eth.svg" alt="" class="h-75 w-auto" style="max-height: 30px;">
+          ETH
         </mat-select-trigger>
         <mat-option value="ETH">
-          <mat-icon>home</mat-icon>ETH
+          <img src="/assets/img/nft/eth.svg" alt="" class="h-75 w-auto" style="max-height: 30px;">
+          ETH
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <fieldset>
+      <button mat-flat-button color="primary">Create NFT</button>
+    </fieldset>
   </form>
 </div>
