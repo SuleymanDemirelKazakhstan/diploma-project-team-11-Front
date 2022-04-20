@@ -11,7 +11,8 @@ registerLocaleData(locale, 'nl');
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
+  providers: [CoinMarketCapService]
 })
 export class TableComponent implements OnInit {
   cryptoData$!: Observable<CategoryDataCoinsInterface[]>;

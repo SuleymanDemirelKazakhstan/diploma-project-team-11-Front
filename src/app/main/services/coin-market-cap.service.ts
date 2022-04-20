@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoryInterface } from '../types/category.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CoinMarketCapService {
   constructor(private http: HttpClient) {}
 
