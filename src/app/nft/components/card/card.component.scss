@@ -1,0 +1,12 @@
+@import '/src/scss/_variables.scss';
+
+.card {
+  width: $card-width;
+  // height: $card-height;
+  background-color: $card-background;
+  .img {
+    // width: $card-img-width;
+    // height: $card-img-height;
+    padding-top: calc(var(--bs-gutter-x) * 0.5);
+  }
+}
