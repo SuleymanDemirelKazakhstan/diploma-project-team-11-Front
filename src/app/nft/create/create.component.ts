@@ -27,10 +27,20 @@ export class CreateComponent implements OnInit {
     this.createForm.updateValueAndValidity();
     // console.log(this.createForm.controls['file'].value);
   }
+  fileHandler2(files: File[]) {
+    console.log('fileChanged');
+    let file: File | null = null;
+    if (files && files.length > 0) {
+      file = files[0];
+    }
+    this.createForm.patchValue({ file: file });
+    this.createForm.updateValueAndValidity();
+    console.log(this.createForm.controls['file'].value);
+  }
 
   private _initializeCreateForm() {
     this.createForm = this._fb.group({
-      file: ['', [Validators.required, FileValidator]],
+      file: [null, [Validators.required, FileValidator]],
       name: ['', Validators.required],
       price: ['', Validators.required],
       description: ['', Validators.required],

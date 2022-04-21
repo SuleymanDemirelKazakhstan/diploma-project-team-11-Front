@@ -5,3 +5,16 @@
     }
   }
 }
+.file-uploader {
+  position: relative;
+  &:hover {
+    background-color: rgb(222, 222, 222);
+  }
+  &::after {
+    content: 'Upload your images here';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+}

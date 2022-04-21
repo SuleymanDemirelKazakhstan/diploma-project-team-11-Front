@@ -4,9 +4,21 @@
     style="font-size: 14px;"
   >
     <fieldset class="my-1 pb-3">
-      <input type="file" accept=".jpg,.png,.gif,.svg,.mp4,.webm,.mp3,.wav,.ogg,.glb,.gltf" (change)="fileHandler($event)">
+      <!-- <input type="file" accept=".jpg,.png,.gif,.svg,.mp4,.webm,.mp3,.wav,.ogg,.glb,.gltf" (change)="fileHandler($event)"> -->
+      <div>
+        Upload your file here
+      </div>
+      <ngx-file-drag-drop [multiple]="false"
+                          [displayFileSize]="true"
+                          [emptyPlaceholder]="''"
+                          (valueChanged)="fileHandler2($event)"
+                          [emptyPlaceholder]="''"
+                          class="ms-0"
+                          [ngClass]="{'file-uploader': createForm.controls['file'].invalid}"
+      ></ngx-file-drag-drop>
+
     </fieldset>    
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Item name</mat-label>
       <input type="text" matInput formControlName="name" autocomplete="off">
       <mat-error *ngIf="createForm.controls['name'].errors?.required">
@@ -28,11 +40,11 @@
       <mat-label>Block chain</mat-label>
       <mat-select placeholder="block chain name" [(value)]="blockChainName">
         <mat-select-trigger > 
-          <img src="/assets/img/nft/eth.svg" alt="" class="h-75 w-auto" style="max-height: 30px;">
+          <img src="/assets/img/nft/eth.svg" alt="" class="h-75 w-auto" style="max-height: 20px;">
           ETH
         </mat-select-trigger>
         <mat-option value="ETH">
-          <img src="/assets/img/nft/eth.svg" alt="" class="h-75 w-auto" style="max-height: 30px;">
+          <img src="/assets/img/nft/eth.svg" alt="" class="h-75 w-auto" style="max-height: 20px;">
           ETH
         </mat-option>
       </mat-select>
