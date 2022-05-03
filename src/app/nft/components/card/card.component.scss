@@ -1,12 +1,31 @@
 @import '/src/scss/_variables.scss';
 
 .card {
-  width: $card-width;
-  // height: $card-height;
+  padding-top: calc(var(--bs-gutter-x) * 0.5);
+  padding-bottom: calc(var(--bs-gutter-x) * 0.5);
+  color: #fff;
+  border-radius: 0;
   background-color: $card-background;
-  .img {
-    // width: $card-img-width;
-    // height: $card-img-height;
-    padding-top: calc(var(--bs-gutter-x) * 0.5);
+  margin-bottom: 30px;
+
+  .card__image {
+    width: $card-img-width;
+    height: $card-img-height;
+    img {
+      width: auto;
+      height: auto;
+      max-height: 100%;
+      max-width: 100%;
+
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+  }
+  .card__bottom {
+    .mat-stroked-button {
+      border-color: rgba(233, 215, 167, 0.8);
+    }
   }
 }

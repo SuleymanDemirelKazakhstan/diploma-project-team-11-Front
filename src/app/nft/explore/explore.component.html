@@ -1,7 +1,9 @@
 <div class="container">
-
-  <p>
-    explore works!
-  </p>
-  <app-card></app-card>
+  <div class="row">
+    <div class="col-4 cards"
+         *ngFor="let card of cards"
+    >
+      <app-card [card]="card"></app-card>
+    </div>
+  </div>
 </div>
